@@ -15,6 +15,7 @@ So, in my implmentations I will multiply the capacities of the data structures i
 Magic Number called MagicFactor =  1.5
 */
 
+#define MagicFactor  1.5
 
 
 typedef struct {
@@ -39,7 +40,7 @@ void init_list(List *list) {
 // Our main append() function to add element in the "list"
 void append(List *list, int value) {
     if (list->size == list->capacity) {
-        list->capacity *= 2;
+        list->capacity *= MagicFactor;
         int *temp = realloc(list->data, list->capacity * sizeof(int));
         if (temp == NULL) {
             printf("Error: Could not allocate memory\n");
@@ -52,7 +53,7 @@ void append(List *list, int value) {
 }
 
 
-// Our pop() function to remove elements from the last element 
+// Our pop() function to remove elements from the last position
 int pop(List* list) {
     if (list->size == 0) {
         return -1;
