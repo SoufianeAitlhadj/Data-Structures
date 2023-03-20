@@ -27,6 +27,7 @@ Queue* createQueue(int capacity) {
     return queue;
 }
 
+
 // Function to add an item to the queue
 void push(Queue* queue, char item) {
     if (queue->size == queue->capacity) {

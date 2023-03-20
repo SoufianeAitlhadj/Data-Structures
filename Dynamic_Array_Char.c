@@ -37,6 +37,7 @@ void init_list(List *list) {
 }
 
 
+
 // Our main append() function to add element in the "list"
 void append(List *list, char value) {
     if (list->size == list->capacity) {
