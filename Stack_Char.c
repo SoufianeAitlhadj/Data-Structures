@@ -8,16 +8,16 @@
 
 
 typedef struct {
-    int *data;
+    char *data;
     size_t size;
     size_t capacity;
 } Stack;
 
 // Our main add() function to add element in the "stack"
-void push(Stack *stack, int value) {
+void push(Stack *stack, char value) {
     if (stack->size == stack->capacity) {
         stack->capacity *= MagicFactor;
-        int *temp = realloc(stack->data, stack->capacity * sizeof(int));
+        char *temp = realloc(stack->data, stack->capacity * sizeof(char));
         if (temp == NULL) {
             printf("Error: Could not allocate memory\n");
             exit(1);
@@ -34,7 +34,7 @@ int pop(Stack* stack) {
     if (stack->size == 0) {
         return -1;
     } else {
-        int last_element = stack->data[stack->size - 1];
+        char last_element = stack->data[stack->size - 1];
         stack->size--;
         return last_element;
     }

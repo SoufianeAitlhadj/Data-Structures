@@ -9,7 +9,7 @@ i.e, First In First Out (FIFO)
 */
 // Define the queue struct
 typedef struct {
-    int* items;     // Pointer to the array of items in the queue
+    char* items;     // Pointer to the array of items in the queue
     int front;      // Index of the front of the queue
     int rear;       // Index of the rear of the queue
     int size;       // Current size of the queue
@@ -19,7 +19,7 @@ typedef struct {
 // Function to create a new queue with a given initial capacity
 Queue* createQueue(int capacity) {
     Queue* queue = (Queue*)malloc(sizeof(Queue));
-    queue->items = (int*)malloc(sizeof(int) * capacity);
+    queue->items = (char*)malloc(sizeof(char) * capacity);
     queue->front = 0;
     queue->rear = -1;
     queue->size = 0;
@@ -28,11 +28,11 @@ Queue* createQueue(int capacity) {
 }
 
 // Function to add an item to the queue
-void push(Queue* queue, int item) {
+void push(Queue* queue, char item) {
     if (queue->size == queue->capacity) {
         // If the queue is full, resize it to double its current capacity
         queue->capacity *= MagicFactor;
-        queue->items = (int*)realloc(queue->items, sizeof(int) * queue->capacity);
+        queue->items = (char*)realloc(queue->items, sizeof(char) * queue->capacity);
     }
     queue->rear++;
     queue->items[queue->rear] = item;
@@ -45,7 +45,7 @@ int pop(Queue* queue) {
         printf("Queue is empty\n");
         return -1;
     }
-    int item = queue->items[queue->front];
+    char item = queue->items[queue->front];
     queue->front++;
     queue->size--;
     return item;
