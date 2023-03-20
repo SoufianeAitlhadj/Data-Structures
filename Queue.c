@@ -39,6 +39,7 @@ void push(Queue* queue, int item) {
     queue->size++;
 }
 
+
 // Function to remove an item from the queue
 int pop(Queue* queue) {
     if (queue->size == 0) {

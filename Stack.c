@@ -7,6 +7,7 @@
 // i.e, Last In First Out (LIFO)
 
 
+
 typedef struct {
     int *data;
     size_t size;
